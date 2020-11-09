@@ -64,7 +64,7 @@ gpgcheck=0
 
 
 
-#### ○ <font style="font-size:80%">复查</font> ○ <font style="font-size:80%">完成</font>		调试 SELinux
+####  ○ <font style="font-size:80%">复查</font> ○ <font style="font-size:80%">完成</font>		调试 SELinux
 
 ```bash
 # ll /var/www/html/ -Z
