@@ -5,7 +5,7 @@
 
 ## 在 mars.domain250.example.com 上执行以下任务。
 
-#### ○ <font style="font-size:80%">复查</font> ○ <font style="font-size:80%">完成</font>		配置网络设置
+#### ○ <font style="font-size:80%">复查</font> ○ <font style="font-size:80%">完成</font>		配置网络设置	
 
 **:desktop_computer: [foundation]**
 
