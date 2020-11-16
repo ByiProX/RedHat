@@ -10,28 +10,30 @@
 
 - RHCA-高级
 
-  |  Course   |                       Content                       |
-  | :-------: | :-------------------------------------------------: |
-  |   CL210   |            红帽 OpenStack 认证系统管理员            |
-  | DO407 2.7 | 使用红帽 Ansible 网络自动化，配置和管理网络基础架构 |
-  |   DO280   |     红帽平台即服务专业技能证书 OpenShift \| k8s     |
-  |   RH318   |            红帽认证虚拟化管理员 (RHCVA)             |
-  |   RH236   |             红帽混合云存储专业技能证书              |
+    |  Course   |                       Content                       |
+    | :-------: | :-------------------------------------------------: |
+    |   CL210   |            红帽 OpenStack 认证系统管理员            |
+    | DO407 2.7 | 使用红帽 Ansible 网络自动化，配置和管理网络基础架构 |
+    |   DO280   |     红帽平台即服务专业技能证书 OpenShift \| k8s     |
+    |   RH318   |            红帽认证虚拟化管理员 (RHCVA)             |
+    |   RH236   |             红帽混合云存储专业技能证书              |
 
 - RHCE-中级 系统管理 III
 
-  | Course |      Content       |  Ver  |
-  | :----: | :----------------: | :---: |
-  | RH294  |    ansible 2.8     | RHCE8 |
-  | RH254  | security + service | RHCE7 |
+    | Course |      Content       |  Ver  |
+    | :----: | :----------------: | :---: |
+    | RH294  |    ansible 2.8     | RHCE8 |
+    | RH254  | security + service | RHCE7 |
 
 - RHCSA-初级  系统管理I, II
 
-  | Course | Content |  Ver   |        |
-  | :----: | :-----: | :----: | :----: |
-  | RH134  | system  | RHCSA8 | 4 Days |
-  | RH124  |  basic  | RHCSA8 | 5 Days |
+    | Course | Content |  Ver   |        |
+    | :----: | :-----: | :----: | :----: |
+    | RH134  | system  | RHCSA8 | 4 Days |
+    | RH124  |  basic  | RHCSA8 | 5 Days |
+
 #### 环境做准备
+
 |  ID  |                                                      |
 | :--: | ---------------------------------------------------- |
 | 硬件 | cpu:VT-X、mem:4GB、disk：80GB                        |
@@ -42,6 +44,7 @@
 <dt style="background: #1abc9c; padding: 6px 12px; font-weight: bold; display: block; color: #fff; margin: -12px; margin-bottom: -12px; margin-bottom: 12px;" >Hint - 提示</dt>
 解压缩7z/windows、keka/macos
 </div>
+
 #### 线下环境
 
 | Machine |        VM        |                       |
@@ -53,34 +56,21 @@
 |   KVM   | servera, b, c, d | nic/MAC+IP+HOSTNAME   |
 
 #### 环境配置
-- 关闭VMware dhcp：
 
-  - Windows - `编辑`菜单/`虚拟网络编辑器...`/`vmnet1`
+- 
 
-  - MacOS -
-
-    ```bash
-    function vmnet1_host {
-        VFN="/Library/Preferences/VMware Fusion/networking"
-        sed -i.bk \
-        -e '/VNET_1_DHCP /s/yes/no/' \
-        -e '/VNET_1.*NETMASK/s/NETMASK.*/NETMASK 255.255.255.0/' \
-        -e '/VNET_1.*SUBNET/s/SUBNET.*/SUBNET 172.25.254.88/' "${VFN}"
-    }
-    
-    # Main area
-    vmnet1_host
-    ```
+- #### ○ <font style="font-size:80%">复查</font> ○ <font style="font-size:80%">完成</font>		创建逻辑卷
 
 - 舒服：`查看`菜单
-  - `拉伸客户机`
-  - 自定义 / `选项卡`
-  
+    - `拉伸客户机`
+    - 自定义 / `选项卡`
+
 - 关闭`360`或`安全管家`
 
 - MEM：`3072`最小
 
 #### 技巧
+
 | STEP |                | Comment    |
 | :--: | -------------- | ---------- |
 |  1   | word           | 单词       |
@@ -324,6 +314,7 @@ copy<br>
 partition=inode+block
 </div>
 
+
 |      | file  | folder   |
 | ---- | ----- | -------- |
 | 创建 | touch | mkdir -p |
@@ -352,11 +343,13 @@ partition=inode+block
 
 # rm -r /home/wjj
 ```
+
 <kbd>y</kbd>*n
 
 ```bash
 # rm /home/wj
 ```
+
 <kbd>y</kbd>
 
 #### ln
@@ -1676,6 +1669,7 @@ gpgkey=http://foundation0.ilt.example.com/rhel8.0/x86_64/dvd/RPM-GPG-KEY-redhat-
 | /dev/hd[a..z]  | IDE                  |        |
 | /dev/vd{a..zz} | VirtIO               |        |
 | /dev/nvme0n1   | nvme                 |        |
+
 #### filesystem type
 
 |         |              |            |        |
@@ -1853,14 +1847,14 @@ root%redhat
 
 #### Simulation
 
-| STEP |                                                              |                    |
-| :--: | ------------------------------------------------------------ | ------------------ |
-|  1   | VMware/ <kbd>恢复快照...</kbd> -=> `INIT`                 | 恢复快照           |
-|  2   | 启动虚拟机 |                |
-|  3   | 插入`ex*.iso`，记得复选<kbd>连接 CD/DVD </kbd> |                |
-|  4   | `ssh root@localhost` | 切换到root身份               |
-|  5   | `yum install -y /run/media/kiosk/<Tab>/<Tab>` | 安装，注意提示         |
-|  6   |  <kbd>Ctrl</kbd>+<kbd>D</kbd>  |  退出root，返回kiosk     |
-|  7   | `exam-setup`                                                 | 设置，绿色黄色回显       |
-|  8   | <kbd>Win</kbd> / <kbd>View Exam</kbd>                        |  模拟考试题（网页） |
-|  9   |  `exam-grade`                                                 | 判分               |
+| STEP |                                                |                     |
+| :--: | ---------------------------------------------- | ------------------- |
+|  1   | VMware/ <kbd>恢复快照...</kbd> -=> `INIT`      | 恢复快照            |
+|  2   | 启动虚拟机                                     |                     |
+|  3   | 插入`ex*.iso`，记得复选<kbd>连接 CD/DVD </kbd> |                     |
+|  4   | `ssh root@localhost`                           | 切换到root身份      |
+|  5   | `yum install -y /run/media/kiosk/<Tab>/<Tab>`  | 安装，注意提示      |
+|  6   | <kbd>Ctrl</kbd>+<kbd>D</kbd>                   | 退出root，返回kiosk |
+|  7   | `exam-setup`                                   | 设置，绿色黄色回显  |
+|  8   | <kbd>Win</kbd> / <kbd>View Exam</kbd>          | 模拟考试题（网页）  |
+|  9   | `exam-grade`                                   | 判分                |

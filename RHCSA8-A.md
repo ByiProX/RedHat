@@ -21,6 +21,9 @@ Password: flectrag
 ```bash
 # nmcli con mod 'Wired connection 1' connection.autoconnect true ipv4.method manual ipv4.addresses 172.25.250.100/24 ipv4.gateway 172.25.250.254 ipv4.dns 172.25.250.254
 # nmcli con up 'Wired connection 1'
+
+======
+# 通过nmtui命令 可视化来处理也可以
 ```
 
 **:desktop_computer: [foundation]**
